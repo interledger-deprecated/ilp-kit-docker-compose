@@ -1,0 +1,68 @@
+# docker compose for an ILP Kit
+version: "2.1"
+networks:
+  kit:
+services:
+
+  postgres:
+    container_name: "postgres"
+    image: "postgres:latest"
+    volumes:
+      - "./postgres-data:/var/lib/postgresql/data"
+    environment:
+      PGDATA: "/var/lib/postgresql/data"
+      POSTGRES_DB: "ilp-kit-db"
+      # TODO: should these be randomized?
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+    networks:
+      kit:
+        aliases:
+          - "postgres"
+
+  nginx:
+    container_name: "nginx"
+    build: "nginx"
+    networks:
+      kit:
+        aliases:
+          - "nginx"
+    ports:
+      - "8794:443"
+
+  ilp-kit:
+    container_name: "ilp-kit"
+    build: "ilp-kit"
+# ( we might not need this, with any luck )
+#    volumes:
+#      - "./env.list:/usr/src/app/env.list"
+    networks:
+      kit:
+        aliases:
+          - "ilp-kit"
+    ports:
+      - "3010:3010"
+    environment:
+      DB_URI: "postgres://admin:admin@postgres/ilp-kit-db"
+      API_HOSTNAME: "localhost"
+      API_PORT: "3100"
+      API_PRIVATE_HOSTNAME: "localhost"
+      API_PUBLIC_PATH: "/api"
+      API_PUBLIC_PORT: "8794"
+      API_SECRET: "3rPt85-0lJj2Mk_nMOmDa3Qevh-qLN1e_79L4vt5rHc"
+      CLIENT_HOST: "localhost"
+      CLIENT_PORT: "3010"
+      CLIENT_PUBLIC_PORT: "8794"
+      CLIENT_TITLE: "Docker Kit"
+      LEDGER_ADMIN_NAME: "admin"
+      LEDGER_ADMIN_PASS: "admin"
+      LEDGER_CURRENCY_CODE: "EUR"
+      LEDGER_CURRENCY_SYMBOL: "€"
+      LEDGER_ILP_PREFIX: "g.dev.docker."
+      LEDGER_RECOMMENDED_CONNECTORS: "connector"
+      CONNECTOR_ENABLE: "true"
+      CONNECTOR_LEDGERS: '{"g.dev.docker.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"http://localhost:3010/ledger/accounts/connector","username":"connector","password":"connector"}}}'
+      API_REGISTRATION: "true"
+      LEDGER_AMOUNT_SCALE: "6"
+      ILP_KIT_CLI_VERSION: "11.0.1"
+      DEBUG: "connector*,ilp*"
