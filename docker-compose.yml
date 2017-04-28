@@ -4,6 +4,16 @@ networks:
   kit:
 services:
 
+#  letsencrypt:
+#    container_name: "letsencrypt"
+#    image: "quay.io/letsencrypt/letsencrypt"
+#    volumes:
+#      - "./letsencrypt/etc:/etc/letsencrypt"
+#      - "./letsencrypt/var:/var/lib/letsencrypt"
+#    ports:
+#      - "80"
+#      - "443"
+
   postgres:
     container_name: "postgres"
     image: "postgres:latest"
