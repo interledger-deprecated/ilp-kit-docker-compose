@@ -20,16 +20,6 @@ services:
         aliases:
           - "postgres"
 
-  nginx:
-    container_name: "nginx"
-    build: "nginx"
-    networks:
-      kit:
-        aliases:
-          - "nginx"
-    ports:
-      - "8794:443"
-
   ilp-kit:
     container_name: "ilp-kit"
     build: "ilp-kit"
@@ -48,11 +38,11 @@ services:
       API_PORT: "3100"
       API_PRIVATE_HOSTNAME: "localhost"
       API_PUBLIC_PATH: "/api"
-      API_PUBLIC_PORT: "8794"
+      API_PUBLIC_PORT: "3010"
       API_SECRET: "3rPt85-0lJj2Mk_nMOmDa3Qevh-qLN1e_79L4vt5rHc"
       CLIENT_HOST: "localhost"
       CLIENT_PORT: "3010"
-      CLIENT_PUBLIC_PORT: "8794"
+      CLIENT_PUBLIC_PORT: "3010"
       CLIENT_TITLE: "Docker Kit"
       LEDGER_ADMIN_NAME: "admin"
       LEDGER_ADMIN_PASS: "admin"
