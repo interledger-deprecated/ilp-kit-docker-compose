@@ -32,7 +32,9 @@ services:
 
   ilp-kit:
     container_name: "ilp-kit"
-    build: "ilp-kit"
+    image: "interledgerjs/ilp-kit:latest"
+# enable this for development, with a local ilp-kit folder
+#    build: "ilp-kit"
     volumes:
       - "./data/uploads:/usr/src/app/uploads"
 # ( we might not need this, with any luck )
