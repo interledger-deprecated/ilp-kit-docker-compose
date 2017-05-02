@@ -9,16 +9,21 @@ _**Note**: This repository is not suitable for a production ILP Kit node in its 
 To start ILP Kit, run:
 
 ```
-docker-compose up -d
+ILP_DOMAIN='example.com' ILP_EMAIL='alice@email.example' docker-compose up -d
 ```
 
 You can watch the logs with `docker-compose logs -f ilp-kit`.
 
-# How it works
+## Currently Included
 
-The docker-compose file runs postgres and creates a database which uses the local `data` folder as
-a volume for its data. The ILP Kit is configured to use this postgres database.
+- ILP Kit
+- Postgres database (storing in the local `data` folder)
+- Automatic Letsencrypt setup (storing certs and keys in the `data` folder)
+- Nginx reverse proxy, exposing ILP Kit on port 443.
 
-Soon, an Nginx reverse proxy will be added, along with an automatic letsencrypt certbot, so that
-you can deploy a production ILP Kit with this repository. Configuration tools will also be included;
-the current docker compose file sets defaults for passwords, API secrets, and ILP prefix.
+## Planned Additions
+
+- Don't use hard-coded defaults for passwords, secrets, etc.
+- Simple configuration parameters: domain, email, currency, and secret.
+- Generate other configuration options from the provided ones.
+- Fix ILP Kit native dependencies.
