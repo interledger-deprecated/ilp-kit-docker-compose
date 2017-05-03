@@ -15,10 +15,10 @@ To start ILP Kit, run the command below, but with your own values instead of the
 placeholders.
 
 ```
-ILP_DOMAIN='example.com' \
-ILP_EMAIL='alice@email.example' \
-ILP_CURRENCY='USD' \
-ILP_SECRET='Z4ZwCWbuo18eMrS1Tgn5L0FPUgK/2pKvgdvZzMogPw4' \
+export ILP_DOMAIN='example.com' \
+export ILP_EMAIL='alice@email.example' \
+export ILP_CURRENCY='USD' \
+export ILP_SECRET='Z4ZwCWbuo18eMrS1Tgn5L0FPUgK/2pKvgdvZzMogPw4' \
 docker-compose up -d
 ```
 
