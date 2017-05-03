@@ -14,7 +14,7 @@ In order to start an ILP Kit, you need to:
 To start ILP Kit, run the command below, but with your own values instead of these
 placeholders.
 
-```
+```sh
 ILP_DOMAIN='example.com' \
 ILP_EMAIL='alice@email.example' \
 ILP_CURRENCY='USD' \
