@@ -71,7 +71,7 @@ services:
       LEDGER_ILP_PREFIX: "g.dev.${ILP_DOMAIN}."
       LEDGER_RECOMMENDED_CONNECTORS: "connector"
       CONNECTOR_ENABLE: "true"
-      CONNECTOR_LEDGERS: '{"g.dev.docker.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"http://localhost:3010/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
+      CONNECTOR_LEDGERS: '{"g.dev.${ILP_DOMAIN}.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"http://localhost:3010/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
       API_REGISTRATION: "true"
       LEDGER_AMOUNT_SCALE: "9"
       LEDGER_AMOUNT_PRECISION: "19"
