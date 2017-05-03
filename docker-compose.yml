@@ -32,7 +32,7 @@ services:
       POSTGRES_DB: "ilp-kit-db"
       # TODO: should these be randomized?
       POSTGRES_USER: "admin"
-      POSTGRES_PASSWORD: "admin"
+      POSTGRES_PASSWORD: "${ILP_SECRET}"
     networks:
       kit:
         aliases:
@@ -54,26 +54,26 @@ services:
     ports:
       - "3010:3010"
     environment:
-      DB_URI: "postgres://admin:admin@postgres/ilp-kit-db"
-      API_HOSTNAME: "localhost"
+      DB_URI: "postgres://admin:${ILP_SECRET}@postgres/ilp-kit-db"
+      API_HOSTNAME: "${ILP_DOMAIN}"
       API_PORT: "3100"
       API_PRIVATE_HOSTNAME: "localhost"
       API_PUBLIC_PATH: "/api"
-      API_PUBLIC_PORT: "3010"
-      API_SECRET: "3rPt85-0lJj2Mk_nMOmDa3Qevh-qLN1e_79L4vt5rHc"
-      CLIENT_HOST: "localhost"
+      API_PUBLIC_PORT: "443"
+      API_SECRET: "${ILP_SECRET}"
+      CLIENT_HOST: "${ILP_DOMAIN}"
       CLIENT_PORT: "3010"
-      CLIENT_PUBLIC_PORT: "3010"
-      CLIENT_TITLE: "Docker Kit"
+      CLIENT_PUBLIC_PORT: "443"
+      CLIENT_TITLE: "${ILP_DOMAIN}"
       LEDGER_ADMIN_NAME: "admin"
-      LEDGER_ADMIN_PASS: "admin"
-      LEDGER_CURRENCY_CODE: "EUR"
-      LEDGER_CURRENCY_SYMBOL: "€"
-      LEDGER_ILP_PREFIX: "g.dev.docker."
+      LEDGER_ADMIN_PASS: "${ILP_SECRET}"
+      LEDGER_CURRENCY_CODE: "${ILP_CURRENCY}"
+      LEDGER_ILP_PREFIX: "g.dev.${ILP_DOMAIN}."
       LEDGER_RECOMMENDED_CONNECTORS: "connector"
       CONNECTOR_ENABLE: "true"
-      CONNECTOR_LEDGERS: '{"g.dev.docker.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"http://localhost:3010/ledger/accounts/connector","username":"connector","password":"connector"}}}'
+      CONNECTOR_LEDGERS: '{"g.dev.docker.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"http://localhost:3010/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
       API_REGISTRATION: "true"
-      LEDGER_AMOUNT_SCALE: "6"
+      LEDGER_AMOUNT_SCALE: "9"
+      LEDGER_AMOUNT_PRECISION: "19"
       ILP_KIT_CLI_VERSION: "11.0.1"
       DEBUG: "connector*,ilp*"
