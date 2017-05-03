@@ -37,12 +37,13 @@ fi
 
 # 2.5) Generate DH Params if needed
 echo "Testing whether DHParams exist."
-if [[ ! -f "/etc/ssl/certs/dhparam.pem" ]]; then
+mkdir -p '/opt/certs'
+if [[ ! -f "/opt/certs/dhparam.pem" ]]; then
 
   # 2.75) Initialize DHParams if needed
   echo "Generating DHParams."
   openssl dhparam \
-    -out /etc/ssl/certs/dhparam.pem \
+    -out /opt/certs/dhparam.pem \
     2048
 
 else

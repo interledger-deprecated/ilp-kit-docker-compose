@@ -10,7 +10,7 @@ services:
     volumes:
       - "./data/letsencrypt/etc:/etc/letsencrypt"
       - "./data/letsencrypt/var:/var/lib/letsencrypt"
-      - "./data/letsencrypt/certs:/etc/ssl/certs"
+      - "./data/letsencrypt/certs:/opt/certs"
     ports:
       - "80:80"
       - "443:443"
