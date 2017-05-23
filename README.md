@@ -24,6 +24,8 @@ docker-compose up -d
 
 You can watch the logs with `docker-compose logs -f ilp-kit`.
 
+To auto deploy to Azure see the [Azure Resource Template](./azure)
+
 ## Currently Included
 
 - ILP Kit

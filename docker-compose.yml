@@ -1,10 +1,12 @@
 # docker compose for an ILP Kit
-version: "2.1"
+version: "2.0"
 networks:
   kit:
 services:
 
   letsencrypt:
+    depends_on:
+      - ilp-kit
     container_name: "letsencrypt"
     build: "nginx-letsencrypt-proxy"
     volumes:
@@ -39,6 +41,8 @@ services:
           - "postgres"
 
   ilp-kit:
+    depends_on:
+      - postgres
     container_name: "ilp-kit"
     image: "interledgerjs/ilp-kit:latest"
 # enable this for development, with a local ilp-kit folder
@@ -72,7 +76,7 @@ services:
       LEDGER_ILP_PREFIX: "g.dev.${ILP_DOMAIN}."
       LEDGER_RECOMMENDED_CONNECTORS: "connector"
       CONNECTOR_ENABLE: "true"
-      CONNECTOR_LEDGERS: '{"g.dev.${ILP_DOMAIN}.":{"currency":"EUR","plugin":"ilp-plugin-bells","options":{"account":"https://${ILP_DOMAIN}/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
+      CONNECTOR_LEDGERS: '{"g.dev.${ILP_DOMAIN}.":{"currency":"${ILP_CURRENCY}","plugin":"ilp-plugin-bells","options":{"account":"https://${ILP_DOMAIN}/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
       API_REGISTRATION: "true"
       LEDGER_AMOUNT_SCALE: "9"
       LEDGER_AMOUNT_PRECISION: "19"
