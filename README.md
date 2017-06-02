@@ -24,6 +24,11 @@ docker-compose up -d
 
 You can watch the logs with `docker-compose logs -f ilp-kit`.
 
+Check that all three containers started successfully, using `docker ps`, `docker ps -a` and for instance `docker logs letsencrypt`.
+
+If the `letsencrypt`, `ilp-kit`, and `postgres` containers are all running, log in to your ilp-kit using user 'admin', and
+using the `ILP_SECRET` you generated as the password.
+
 ## Currently Included
 
 - ILP Kit
