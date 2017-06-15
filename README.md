@@ -29,6 +29,8 @@ Check that all three containers started successfully, using `docker ps`, `docker
 If the `letsencrypt`, `ilp-kit`, and `postgres` containers are all running, log in to your ilp-kit using user 'admin', and
 using the `ILP_SECRET` you generated as the password.
 
+To auto deploy to Azure see the [Azure Resource Template](./azure)
+
 ## Currently Included
 
 - ILP Kit
