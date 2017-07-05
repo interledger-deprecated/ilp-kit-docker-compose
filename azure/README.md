@@ -1,9 +1,9 @@
 # Simple deployment of an Ubuntu VM with Docker and ILP-kit
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Finterledgerjs%2Filp-kit-docker-compose%2Fmaster%2Fazure%2Fazure-deploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Finterledgerjs%2Filp-kit-docker-compose%2Ftestnet%2Fazure%2Fazure-deploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Finterledgerjs%2Filp-kit-docker-compose%2Fmaster%2Fazure%2Fazure-deploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Finterledgerjs%2Filp-kit-docker-compose%2Ftestnet%2Fazure%2Fazure-deploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
