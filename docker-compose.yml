@@ -79,7 +79,7 @@ services:
       CONNECTOR_ENABLE: "true"
       CONNECTOR_AUTOLOAD_PEERS: "true"
       CONNECTOR_MAX_HOLD_TIME: "100"
-      CONNECTOR_LEDGERS: '{"g.dev.${ILP_DOMAIN}.":{"currency":"${ILP_CURRENCY}","plugin":"ilp-plugin-bells","options":{"account":"https://${ILP_DOMAIN}/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}}}'
+      CONNECTOR_LEDGERS: '{"g.dev.${ILP_DOMAIN}.":{"currency":"${ILP_CURRENCY}","plugin":"ilp-plugin-bells","options":{"account":"https://${ILP_DOMAIN}/ledger/accounts/connector","username":"connector","password":"${ILP_SECRET}"}},"g.amundsen.":{"currency":"USD","plugin":"ilp-plugin-xrp-paychan","options":{"rippledServer":"wss://s.altnet.rippletest.net:51233","address":"rMrek9xizm98t3Vg5hcJssrZMmgg49nXyT","secret":"shD3b8JYqsCwbX5sPWi9FBRk7sTUZ","peerAddress":"rhjRdyVNcaTNLXp3rkK4KtjCdUd9YEgrPs","maxUnsecured":"50000","maxAmount":"10000000","maxBalance":"Infinity","server":"btp+ws://baikahphuuToo1eiju4e:zah3Eiyebei4ahF1Yoh0@amundsen2.michielbdejong.com/api/17q4","store":true}}}'
       API_REGISTRATION: "true"
       LEDGER_AMOUNT_SCALE: "9"
       LEDGER_AMOUNT_PRECISION: "19"
