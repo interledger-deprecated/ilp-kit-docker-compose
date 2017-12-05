@@ -26,6 +26,9 @@ ILP_DOMAIN='example.com' \
 ILP_EMAIL='alice@email.example' \
 ILP_CURRENCY='USD' \
 ILP_SECRET='Z4ZwCWbuo18eMrS1Tgn5L0FPUgK/2pKvgdvZzMogPw4' \
+AMUNDSEN_USERNAME='baikahphuuToo1eiju4e' \
+AMUNDSEN_PASSWORD='zah3Eiyebei4ahF1Yoh0' \
+NODE_ENV='production' \
 docker-compose up -d
 ```
 
