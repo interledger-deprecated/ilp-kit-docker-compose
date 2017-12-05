@@ -30,6 +30,7 @@ XRP_TESTNET_ADDRESS='Mrek9xizm98t3Vg5hcJssrZMmgg49nXyT' \
 XRP_TESTNET_SECRET='shD3b8JYqsCwbX5sPWi9FBRk7sTUZ' \
 AMUNDSEN_USERNAME='baikahphuuToo1eiju4e' \
 AMUNDSEN_PASSWORD='zah3Eiyebei4ahF1Yoh0' \
+NODE_ENV='production' \
 docker-compose up -d
 ```
 
