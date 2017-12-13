@@ -56,7 +56,8 @@ services:
         aliases:
           - "ilp-kit"
     ports:
-      - "3010:3010"
+      - "3100:3100"
+      - "3101:3101"
     environment:
       DB_URI: "postgres://admin:${ILP_SECRET}@postgres/ilp-kit-db"
       API_HOSTNAME: "${ILP_DOMAIN}"
